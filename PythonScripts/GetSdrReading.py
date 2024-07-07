@@ -1,2 +1,2 @@
 import random
-a = random.randint(0,7)
+res = str(random.randrange(0,180))
