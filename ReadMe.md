@@ -6,3 +6,8 @@ to create the executable from the python file using the pyinstaller tool and usi
 ```
 pyinstaller ToImage/ToImage.py --onefile --clean --distpath ./ToImage
 ```
+
+## Libraries Used 
+- xlrd
+- pyinstaller
+- 
