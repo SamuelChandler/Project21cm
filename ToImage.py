@@ -32,11 +32,25 @@ readings = readings.sort_values(by=['Elevation','Azimuth'], axis=0, ignore_index
 
 print(readings)
 
+#Calculate mean and standard dev
 means = np.mean(readings, axis=0)
 standardDev = np.std(readings, axis=0)
 
+MagMean = means[0]
+MagStd = standardDev[0]
+
 print(means)
 print(standardDev)
+
+zScores = []
+
+#calculate the z- score of each reading
+for x in readings["Magnitude"]:
+    z = (x - MagMean)/MagStd
+    zScores.append(float(z))
+
+print(zScores)
+
 
 # Create Image 
 im = Image.new(mode="RGB", size=(200,200), color='red')
