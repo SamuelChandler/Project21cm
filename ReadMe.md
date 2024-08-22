@@ -11,3 +11,5 @@ pyinstaller ToImage.py --onefile --clean --distpath ./ToImage
 - xlrd
 - pyinstaller
 - Pillow (PIL)
+- Numpy
+- pandas
