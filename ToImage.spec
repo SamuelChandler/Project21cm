@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['ToImage\\ToImage.py'],
+    ['ToImage.py'],
     pathex=[],
     binaries=[],
     datas=[],
