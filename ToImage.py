@@ -36,26 +36,57 @@ print(readings)
 means = np.mean(readings, axis=0)
 standardDev = np.std(readings, axis=0)
 
-MagMean = means[0]
-MagStd = standardDev[0]
+MagMean = means.iloc[0]
+MagStd = standardDev.iloc[0]
 
 print(means)
 print(standardDev)
 
 zScores = []
 
+maxZ = 0
+minZ = 100
+
 #calculate the z- score of each reading
 for x in readings["Magnitude"]:
     z = (x - MagMean)/MagStd
     zScores.append(float(z))
 
-print(zScores)
+    if z > maxZ: 
+        maxZ = z
+    if z < minZ: 
+        minZ = z 
+
+print(minZ)
+print(maxZ)
 
 
-# Create Image 
-im = Image.new(mode="RGB", size=(200,200), color='red')
+# determine the scale change and the offset 
+highestWithOffset = maxZ - minZ
+
+k = 255/highestWithOffset
+
+print("Highest With Offset: " + str(highestWithOffset))
+print("k: " + str(k))
+
+# Create Image, defaulting to 180 for now
+resultingImage = Image.new(mode="RGB", size=(180,180), color='black')
+
+
+azimuth = readings['Azimuth'].astype(int)
+elevation = readings['Elevation'].astype(int)
+
+print(azimuth[1])
+
+#determine the brightness for each z score and map to position on the image
+for x in range(len(zScores)):
+    brightness = k * (zScores[x]+minZ)
+
+    resultingImage.putpixel((azimuth[x],elevation[x]),int(brightness))
+
+
 
 
 #Save Image
-im.save("resultingImg.png")
+resultingImage.save("resultingImg.png")
 
