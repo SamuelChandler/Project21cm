@@ -32,6 +32,7 @@ def avg_mag():
     
             average_mag = sum(center_mag) / len(center_mag)
 
+
     return average_mag
     
 
