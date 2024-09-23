@@ -19,3 +19,7 @@ pyinstaller Export.py --onefile --clean --noconsole --distpath ./Executables
 - Pillow (PIL)
 - Numpy
 - pandas
+- pyhackrf
+- matplotlib
+- scipy
+- time
