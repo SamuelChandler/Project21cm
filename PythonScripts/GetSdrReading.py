@@ -1,4 +1,6 @@
-from hackrf import *
+print("Getting SDR Reading")
+
+#import hackrf
 from scipy import signal
 from time import sleep
 import matplotlib.pyplot as plt
@@ -6,12 +8,11 @@ import matplotlib.pyplot as plt
 
 #script Version of the hackRF_magreader.py for pyinstaller
 
-print("Getting SDR Reading")
 
 center_mag = []
 values_to_avg = 100
 
-with HackRF() as hrf:
+with hackrf() as hrf:
     
     hrf.sample_rate = 20e6
     hrf.center_freq = 2400e6
