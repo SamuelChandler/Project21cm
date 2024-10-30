@@ -2,8 +2,7 @@
 
 MatlabBuild
 
-build/ToImage
-build/Export
+build
 
 settings.json
 

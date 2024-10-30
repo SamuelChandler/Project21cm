@@ -1,6 +1,7 @@
 import pandas as pd
 from PIL import Image
 import numpy as np
+import math 
 
 RESULT_NAME = "Data/Result.xlsx"
 
@@ -77,7 +78,10 @@ print(azimuth[1])
 for x in range(len(zScores)):
     brightness = k * (zScores[x]+minZ)
 
-    resultingImage.putpixel((azimuth[x],elevation[x]),int(brightness))
+    if math.isnan(brightness):
+        resultingImage.putpixel((azimuth[x],elevation[x]),200)
+    else:
+        resultingImage.putpixel((azimuth[x],elevation[x]),int(brightness))
 
 
 
