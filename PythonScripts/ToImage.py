@@ -2,17 +2,12 @@ import pandas as pd
 from PIL import Image
 import numpy as np
 
-RESULT_NAME = "Result.xlsx"
+RESULT_NAME = "Data/Result.xlsx"
 
 dataFrame = pd.read_excel(RESULT_NAME)
 
 #removing Unneeded Variables 
-dataFrame.pop("Var4")
-dataFrame.pop("Var5")
-dataFrame.pop("Var6")
-dataFrame.pop("Var7")
-dataFrame.pop("Var8")
-dataFrame.pop("Var9")
+
 
 #format to desired datatype and labels
 readings = pd.DataFrame(dataFrame[1:])
@@ -88,5 +83,5 @@ for x in range(len(zScores)):
 
 
 #Save Image
-resultingImage.save("resultingImg.png")
+resultingImage.save("Data/Image.png")
 
