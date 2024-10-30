@@ -7,7 +7,7 @@ from PIL import Image
 
 tkinter.Tk().withdraw() #prevents window from opening 
 
-IMG_FILENAME = "./resultingImg.png"
+IMG_FILENAME = "./Data/Image.png"
 
 dest_folder = filedialog.askdirectory()
 
