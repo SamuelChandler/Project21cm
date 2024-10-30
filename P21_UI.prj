@@ -2,14 +2,19 @@
   <configuration build-checksum="2678082819" file="E:\School\MATLAB\P21_UI.prj" location="E:\School\MATLAB" name="P21_UI" preferred-package-location="E:\School\MATLAB\build\P21_UI\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>P21_UI</param.appname>
     <param.icon>${PROJECT_ROOT}\P21_UI_resources\icon.ico</param.icon>
-    <param.icons />
+    <param.icons>
+      <file>${PROJECT_ROOT}\P21_UI_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\P21_UI_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\P21_UI_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\P21_UI_resources\icon_16.png</file>
+    </param.icons>
     <param.version>1.0</param.version>
     <param.authnamewatermark>Samuel Chandler</param.authnamewatermark>
     <param.email>sec180005@utdallas.edu</param.email>
     <param.company>UTD</param.company>
     <param.summary />
     <param.description />
-    <param.screenshot>E:\School\Senior Project\Logo.png</param.screenshot>
+    <param.screenshot>${PROJECT_ROOT}\Logo.png</param.screenshot>
     <param.guid />
     <param.installpath.string>\P21_UI\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
@@ -43,7 +48,6 @@
 	 -?  print help on how to use the application 
 	 input arguments</param.help.text>
     <unset>
-      <param.icons />
       <param.version />
       <param.summary />
       <param.description />
