@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['Export.py'],
+    ['PythonScripts\\Export.py'],
     pathex=[],
     binaries=[],
     datas=[],

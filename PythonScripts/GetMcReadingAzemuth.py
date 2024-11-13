@@ -1,2 +1,2 @@
 import random
-azimuth = str(random.randrange(0,180))
+azimuth = str(random.randrange(1,180))
