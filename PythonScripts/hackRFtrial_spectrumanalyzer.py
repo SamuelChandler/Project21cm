@@ -3,14 +3,19 @@ from scipy import signal
 from time import sleep
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
+
 
 def main():
     with HackRF() as hrf:
         
         hrf.sample_rate = 20e6
-        hrf.center_freq = np.int16(input('Please enter center frequncy in MHz:'))*1e6
-        hrf.lna_gain = 8
-        hrf.vga_gain = 22
+
+        arguments = sys.argv
+        
+        hrf.center_freq = arguments[0]*1e6
+        hrf.lna_gain = arguments[1]
+        hrf.vga_gain = arguments[2]
         num_samples = 2e4
 
         samples = hrf.read_samples(num_samples)
