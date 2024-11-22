@@ -12,15 +12,17 @@ def main():
         hrf.sample_rate = 20e6
 
         arguments = sys.argv
+        print(arguments[1])
         
-        hrf.center_freq = arguments[0]*1e6
-        hrf.lna_gain = arguments[1]
-        hrf.vga_gain = arguments[2]
-        num_samples = 2e4
+        hrf.center_freq = int(arguments[1])*1e6
+        hrf.lna_gain = int(arguments[2])
+        hrf.vga_gain = 16
+        num_samples = 2e5
 
+        sleep(.1)
         samples = hrf.read_samples(num_samples)
         
-        f, pxx = signal.welch(samples, hrf.sample_rate/1e6, 'blackman',1024)
+        f, pxx = signal.welch(samples, hrf.sample_rate/1e6, 'blackman', nperseg=20e3,nfft=40e3)
     
         y_center = hrf.center_freq/1e6
 
@@ -32,13 +34,14 @@ def main():
         plt.ylabel('Power Density (dB/Hz)')
         plt.xlabel('Frequency (MHz)')
         plt.title('Spectrum Analyzer')
-        plt.ylim(-70,10)
+        plt.ylim(-80,10)
 
 
         while plt.fignum_exists(fig.number): 
-            sleep(.2)
-            samples = hrf.read_samples(2e4)[500:]
-            f,pxx = signal.welch(samples, hrf.sample_rate/1e6, 'blackman', 1024)
+            sleep(.5)
+            
+            samples = hrf.read_samples(num_samples)
+            f,pxx = signal.welch(samples, hrf.sample_rate/1e6, 'blackman', nperseg=20e3,nfft=40e3)
             line1.set_ydata(np.fft.fftshift(10*np.log10(pxx)))
             fig.canvas.draw()
             fig.canvas.flush_events()
