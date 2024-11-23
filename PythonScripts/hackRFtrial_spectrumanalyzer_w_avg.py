@@ -33,7 +33,7 @@ def main():
 
             rollingData.append(pxx)
 
-        avg_pxx = np.average(np.array(rollingData), axis=0)      
+        avg_pxx = np.average(np.array(rollingData), axis=0)  
         y_center = hrf.center_freq/1e6
 
         plt.ion()
