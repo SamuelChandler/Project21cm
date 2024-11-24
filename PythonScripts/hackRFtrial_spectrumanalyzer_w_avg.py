@@ -22,7 +22,7 @@ def main():
         hrf.sample_rate = 8e6          
         hrf.center_freq = int(arguments[1])*1e6
         hrf.lna_gain = int(arguments[2])
-        hrf.vga_gain = 32   
+        hrf.vga_gain = int(arguments[3]) 
         num_samples = 2e5
 
         sleep(.1)
